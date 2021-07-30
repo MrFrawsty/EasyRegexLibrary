@@ -10,8 +10,10 @@ namespace EasyRegexLibraryTester
         {
             string filePath = @"C:\Users\kenny\Desktop\EasyRegexText.txt";
 
-           var result = EasyRegexCollections.ReadFromFile(filePath, EasyRegexCollections.FindEmailAddresses).Result;
-            foreach(var res in result)
+            var result = EasyRegexCollections.ReadFromFile(filePath, EasyRegexCollections.FindIPAddresses).Result;
+         
+       
+            foreach (var res in result)
             {
                 Console.WriteLine(res);
             }

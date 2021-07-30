@@ -10,8 +10,13 @@ namespace EasyRegexLibrary
 {
   
      public static class EasyRegexCollections
-     {
-      
+     {  
+        public static MatchCollection FindCreditCardNumbers(string text)
+        {
+            
+            return new Regex(@"\b\d{4}(\s|-)?\d{4}(\s|-)?\d{4}(\s|-)?\d{2,4}\b").Matches(text);
+        }
+
         public static MatchCollection FindDates(string text)
         {
             return new Regex(@"\b(?:[0-9]{1}|[0-9]{2})[-/\s](?:[0-9]{1}|[0-9]{2})[-/\s](?:[0-9]{2}|[0-9]{4})\b").Matches(text);
@@ -21,6 +26,11 @@ namespace EasyRegexLibrary
         {
             return new Regex(@"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b", RegexOptions.IgnoreCase).Matches(text);
                
+        }
+
+        public static MatchCollection FindIPAddresses(string text)
+        {
+            return new Regex(@"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b").Matches(text);
         }
  
         public static MatchCollection FindPhoneNumbers(string text)
