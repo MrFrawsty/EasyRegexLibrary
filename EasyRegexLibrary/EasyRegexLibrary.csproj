@@ -2,6 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Kenny Carneal</Authors>
+    <Description>A wrapper for Regex with a few prewritten regular expressions for finding email addresses etc.</Description>
+    <PackageTags>Regex, Helper, Wrapper</PackageTags>
   </PropertyGroup>
 
 </Project>
