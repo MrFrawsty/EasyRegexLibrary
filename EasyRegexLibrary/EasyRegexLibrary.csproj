@@ -6,6 +6,17 @@
     <Authors>Kenny Carneal</Authors>
     <Description>A wrapper for Regex with a few prewritten regular expressions for finding email addresses etc.</Description>
     <PackageTags>Regex, Helper, Wrapper</PackageTags>
+    <RepositoryUrl>https://github.com/MrFrawsty/EasyRegexLibrary</RepositoryUrl>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageLicenseFile>EasyRegexMITLicense.txt</PackageLicenseFile>
+    <Version>1.0.1</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\Desktop\EasyRegexMITLicense.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
