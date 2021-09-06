@@ -5,12 +5,10 @@ using System.Threading.Tasks;
 
 namespace EasyRegexLibrary
 {
-
     public static class EasyRegex
-     {  
+    {  
         public static MatchCollection FindCreditCardNumbers(string text)
-        {
-            
+        {   
             return new Regex(@"\b\d{4}(\s|-)?\d{4}(\s|-)?\d{4}(\s|-)?\d{2,4}\b").Matches(text);
         }
 
@@ -28,6 +26,11 @@ namespace EasyRegexLibrary
         public static MatchCollection FindIPAddresses(string text)
         {
             return new Regex(@"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b").Matches(text);
+        }
+
+        public static MatchCollection FindMoney(string text)
+        {
+            return new Regex(@"\$?[0-9]{1,3}(?:\,|\.)?[0-9]{1,3}?(?:\,|\.)?[0-9]{1,3}(?:\,|\.)?[0-9]{1,3}(?:\,|\.)?[0-9]{1,3}", RegexOptions.IgnoreCase).Matches(text);
         }
  
         public static MatchCollection FindPhoneNumbers(string text)
@@ -71,12 +74,19 @@ namespace EasyRegexLibrary
  
         }
 
-        public static async Task<MatchCollection> ReadFromFile(string filePath, Func<string, MatchCollection> searchMethod)
+        public static MatchCollection ReadFromFile(string filePath, Func<string, MatchCollection> searchMethod)
         {
             using StreamReader reader = new StreamReader(filePath);
-            var content = await reader.ReadToEndAsync();
+            var content = reader.ReadToEnd();
             return searchMethod.Invoke(content);
         }
 
-     }
+        public static async Task<MatchCollection> ReadFromFileAsync(string filePath, Func<string, Task<MatchCollection>> searchMethod)
+        {
+            using StreamReader reader = new StreamReader(filePath);
+            var content = await reader.ReadToEndAsync();
+            return await searchMethod.Invoke(content);
+        }
+
+    }
 }
