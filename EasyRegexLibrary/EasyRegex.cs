@@ -81,11 +81,11 @@ namespace EasyRegexLibrary
             return searchMethod.Invoke(content);
         }
 
-        public static async Task<MatchCollection> ReadFromFileAsync(string filePath, Func<string, Task<MatchCollection>> searchMethod)
+        public static async Task<MatchCollection> ReadFromFileAsync(string filePath, Func<string, MatchCollection> searchMethod)
         {
             using StreamReader reader = new StreamReader(filePath);
             var content = await reader.ReadToEndAsync();
-            return await searchMethod.Invoke(content);
+            return searchMethod.Invoke(content);
         }
 
     }
