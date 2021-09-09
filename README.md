@@ -4,8 +4,12 @@ Currently only works for U.S. phone numbers/addresses.
 
 To use: simply call the EasyRegex class, choose your method for searching, pass the text, and you're returned a MatchCollection of the specified search results.
 
- ```MatchCollection streetAddresses = EasyRegexLibrary.EasyRegexCollections.FindStreetAddresses("Mytext");```
+ ```MatchCollection streetAddresses = EasyRegex.FindStreetAddresses("Mytext");```
 
 You can also search a file directly using the ReadFromFile method.  
 
-```MatchCollection {any of the premade search methods} = EasyRegexLibrary.EasyRegexCollections.ReadFromFile(filePath, searchMethod);```
+```MatchCollection result = EasyRegex.ReadFromFile(filePath, {searchMethod});```
+
+Or use the ReadFromFileAsync method to perform the file reading asynchronously 
+
+``` MatchCollection result = await EasyRegex.ReadFromFileAsync(filePath, {searchMethod}); ```
