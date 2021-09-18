@@ -52,7 +52,7 @@ namespace EasyRegexLibrary
 
         public static MatchCollection FindWebsites(string text)
         {
-            return new Regex(@"\b(http:\/\/)?(www)?\.?[a-z0-9\-\_\~\.]{1,256}\.[a-z]{1,10}\.?[a-z]{1,10}?\b", RegexOptions.IgnoreCase).Matches(text);
+            return new Regex(@"(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#/%=~_|$?!:,.]*\)|[A-Z0-9+&@#/%=~_|$])", RegexOptions.IgnoreCase).Matches(text);
         }
 
         public static MatchCollection MatchWord(string word, string text)
