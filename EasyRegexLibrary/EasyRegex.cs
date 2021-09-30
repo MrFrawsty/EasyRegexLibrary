@@ -35,7 +35,7 @@ namespace EasyRegexLibrary
  
         public static MatchCollection FindPhoneNumbers(string text)
         {
-            return new Regex(@"1?-?\(?[0-9]{3}\)?(-|\s)[0-9]{3}(-|\s)[0-9]{4}", RegexOptions.IgnoreCase).Matches(text);    
+            return new Regex(@"\+?1?-?\(?[0-9]{3}\)?(-|\s)[0-9]{3}(-|\s)[0-9]{4}", RegexOptions.IgnoreCase).Matches(text);    
         }
 
         public static MatchCollection FindStreetAddresses(string text)
@@ -43,7 +43,12 @@ namespace EasyRegexLibrary
             
            return new Regex(@"\b[0-9-]{1,7}\s(?:\w{1,20}|[0-9]{1,7})[\s-,]+?(?:\w{1,20}|[0-9]{1,7})?[\s-,]+(?:\w{1,20}|[0-9]{1,7})?[\s-,]+?(?:\w{1,20}|[0-9]{1,7})?[\s-,]+(?:\w{1,20}|[0-9]{1,7})?[\s-,]+?([0-9]{1,20}|[0-9]{1,7})?[\s-,]?[0-9-]{1,11}\b")
                .Matches(text);
-        } 
+        }
+
+        public static MatchCollection FindNonFormattedPhoneNumbers(string text)
+        {
+            return new Regex(@"\+?[0-9]{7,10}", RegexOptions.IgnoreCase).Matches(text);
+        }
 
         public static MatchCollection FindTimes(string text)
         {

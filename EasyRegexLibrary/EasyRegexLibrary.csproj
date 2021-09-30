@@ -4,12 +4,12 @@
     <TargetFramework>net5.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Kenny Carneal</Authors>
-    <Description>A wrapper for Regex with a few prewritten regular expressions for finding email addresses etc.</Description>
+    <Description>A wrapper for Regex with several prewritten regular expressions for finding email addresses etc.</Description>
     <PackageTags>Regex, Helper, Wrapper</PackageTags>
     <RepositoryUrl>https://github.com/MrFrawsty/EasyRegexLibrary</RepositoryUrl>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageLicenseFile>EasyRegexMITLicense.txt</PackageLicenseFile>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
   </PropertyGroup>
 
   <ItemGroup>
