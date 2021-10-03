@@ -9,12 +9,12 @@ namespace EasyRegexLibrary
     {  
         public static MatchCollection FindCreditCardNumbers(string text)
         {   
-            return new Regex(@"\b\d{4}(\s|-)?\d{4}(\s|-)?\d{4}(\s|-)?\d{2,4}\b").Matches(text);
+            return new Regex(@"\b(?:\d[ -]*?){13,16}\b").Matches(text);
         }
-
+ 
         public static MatchCollection FindDates(string text)
         {
-            return new Regex(@"\b(?:[0-9]{1}|[0-9]{2})[-/\s](?:[0-9]{1}|[0-9]{2})[-/\s](?:[0-9]{2}|[0-9]{4})\b").Matches(text);
+            return new Regex(@"\b(?:[0-9]{1}|[0-9]{2}|[0-9]{4})[-/\s](?:[0-9]{1}|[0-9]{2})[-/\s](?:[0-9]{2}|[0-9]{4})\b").Matches(text);
         }
 
         public static MatchCollection FindEmailAddresses(string text)
@@ -28,9 +28,9 @@ namespace EasyRegexLibrary
             return new Regex(@"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b").Matches(text);
         }
 
-        public static MatchCollection FindMoney(string text)
+        public static MatchCollection FindUSCurrency(string text)
         {
-            return new Regex(@"\$?[0-9]{1,3}(?:\,|\.)?[0-9]{1,3}?(?:\,|\.)?[0-9]{1,3}(?:\,|\.)?[0-9]{1,3}(?:\,|\.)?[0-9]{1,3}", RegexOptions.IgnoreCase).Matches(text);
+            return new Regex(@"\$(\d{1,3}(\,\d{3})*|(\d+))(\.\d{2})?", RegexOptions.IgnoreCase).Matches(text);
         }
  
         public static MatchCollection FindPhoneNumbers(string text)
@@ -38,10 +38,10 @@ namespace EasyRegexLibrary
             return new Regex(@"\+?1?-?\(?[0-9]{3}\)?(-|\s)[0-9]{3}(-|\s)[0-9]{4}", RegexOptions.IgnoreCase).Matches(text);    
         }
 
-        public static MatchCollection FindStreetAddresses(string text)
+        public static MatchCollection FindStreetNames(string text)
         {
             
-           return new Regex(@"\b[0-9-]{1,7}\s(?:\w{1,20}|[0-9]{1,7})[\s-,]+?(?:\w{1,20}|[0-9]{1,7})?[\s-,]+(?:\w{1,20}|[0-9]{1,7})?[\s-,]+?(?:\w{1,20}|[0-9]{1,7})?[\s-,]+(?:\w{1,20}|[0-9]{1,7})?[\s-,]+?([0-9]{1,20}|[0-9]{1,7})?[\s-,]?[0-9-]{1,11}\b")
+           return new Regex(@"\b[0-9-]{1,5}\s?(?:[a-z.]{1,20})[\s-,]+?(?:[a-z.]{1,20}|[0-9]{1,7})?[\s-,]?(?:[a-z.]{1,20}|[0-9]{1,7})?[\s-,]+?(?:[a-z.]{1,20}|[0-9]{1,7})?[\s-,]+(?:[a-z.]{1,20}|[0-9]{1,7})?[\s-,]+?[a-z.]+?[a-z.]+?\b", RegexOptions.IgnoreCase)
                .Matches(text);
         }
 
@@ -52,10 +52,10 @@ namespace EasyRegexLibrary
 
         public static MatchCollection FindTimes(string text)
         {
-            return new Regex(@"\b[0-9]{1,2}:[0-9]{2}(am|pm)?\b",RegexOptions.IgnoreCase).Matches(text);
+            return new Regex(@"\b[0-9]{1,4}(?::[0-9]{2}|am|pm)(?:am|pm)?\b", RegexOptions.IgnoreCase).Matches(text);
         }
 
-        public static MatchCollection FindWebsites(string text)
+        public static MatchCollection FindURLs(string text)
         {
             return new Regex(@"(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#/%=~_|$?!:,.]*\)|[A-Z0-9+&@#/%=~_|$])", RegexOptions.IgnoreCase).Matches(text);
         }

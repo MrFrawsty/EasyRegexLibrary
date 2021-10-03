@@ -1,55 +1,97 @@
 using System;
 using Xunit;
 using EasyRegexLibrary;
-
+using System.IO;
 
 namespace EasyRegexTests
 {
     public class EasyRegexUnitTests
     {
-        [Fact]
-        public void FindWebsitesShouldFindTwoResults()
-        {
-            string testText = @"www.test.com wwtest.com test@email.com test.org http://www.mytest.net";
 
-
-            var results = EasyRegex.FindWebsites(testText);
-
-            Assert.Equal(2, results.Count);
-        }
+        static string testString = Properties.Resources.RegexTestText;
 
         [Fact]
-        public void FindPhoneNumbersShouldFindFiveResults()
+        public void FindCreditCardNumbersShouldFind5Results()
         {
-            string testText = @"6155821494 (615)-582-1494 270 558-1482 1888-730-7215 1-800-554-1788 111 111 1111";
 
-
-            var results = EasyRegex.FindPhoneNumbers(testText);
+            var results = EasyRegex.FindCreditCardNumbers(testString);
 
             Assert.Equal(5, results.Count);
         }
 
         [Fact]
-        public void FindCreditCardNumbersShouldFind2Results()
+        public void FindDatesShouldFind5Results()
         {
-            string testText = @"4144 2555 4254 7958 7011-4885-0558-055";
 
+            var results = EasyRegex.FindDates(testString);
 
-            var results = EasyRegex.FindCreditCardNumbers(testText);
-
-            Assert.Equal(2, results.Count);
+            Assert.Equal(5, results.Count);
         }
 
         [Fact]
-        public void FindStreetAddress()
+        public void FindEmailAddressesShouldFind5Results()
         {
-            string testText = @"4144 2555 4254 7958 7011-4885-0558-055";
 
+            var results = EasyRegex.FindEmailAddresses(testString);
 
-            var results = EasyRegex.FindCreditCardNumbers(testText);
-
-            Assert.Equal(2, results.Count);
+            Assert.Equal(5, results.Count);
         }
+
+        [Fact]
+        public void FindIPAddressesShouldFind5Results()
+        {
+
+            var results = EasyRegex.FindIPAddresses(testString);
+
+            Assert.Equal(5, results.Count);
+        }
+
+        [Fact]
+        public void FindPhoneNumbersShouldFind5Results()
+        {
+   
+            var results = EasyRegex.FindPhoneNumbers(testString);
+
+            Assert.Equal(5, results.Count);
+        }
+
+        [Fact]
+        public void FindStreetNamesShouldFind5Results()
+        {
+
+            var results = EasyRegex.FindStreetNames(testString);
+
+            Assert.Equal(5, results.Count);
+        }
+
+        [Fact]
+        public void FindURLsShouldFind5Results()
+        {
+
+            var results = EasyRegex.FindURLs(testString);
+
+            Assert.Equal(5, results.Count);
+        }
+
+        [Fact]
+        public void FindTimesShouldFind5Results()
+        {
+
+            var results = EasyRegex.FindTimes(testString);
+
+            Assert.Equal(5, results.Count);
+        }
+
+        [Fact]
+        public void FindMoneyShouldFind5Results()
+        {
+
+            var results = EasyRegex.FindUSCurrency(testString);
+
+            Assert.Equal(5, results.Count);
+        }
+
+
 
     }
 }
