@@ -1,0 +1,51 @@
+http://example.com/apparatus/attack?attraction=bit
+http://air.example.com/
+http://www.example.edu/
+https://www.example.org/
+https://www.example.com/#behavior
+(567) 358-4943
+(659)-902-5815
+(959) 793-5536
+ 910 913-1297
+1(811) 314-4660
+3475 202023 39841
+American Express
+4895 4449 1643 1737
+Visa
+3441 473599 05522
+American Express
+6011 2577 5171 1508
+Discover
+3486 907591 77834
+American Express
+barlow@aol.com
+kronvold@me.com
+crypt@comcast.net
+dkeeler@hotmail.com
+dkrishna@mac.com
+93.162.1.197
+220.31.133.93
+123.212.160.3
+37.150.55.250
+248.58.6.22
+08/16/1843
+04/07/1904
+08/10/1898
+20/01/1985
+1902-11-03
+4 N. Smith Ave. Powhatan, VA 23139
+9 Birchpond St. Long Branch, NJ 07740
+5 East St. Kernersville, NC 27284
+700 Oak Street, Brockton MA 2301
+1300 Gilmer Ave, Tallassee AL 36078
+10am
+11:00
+7:11PM
+08:41
+134pm
+$0.84 
+$1
+1.00
+$55.22
+$1,000,000
+$5,000.24
